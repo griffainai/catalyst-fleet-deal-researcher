@@ -9,6 +9,12 @@ type ClientMessage = { role: "user" | "assistant"; content: string };
 
 // --- Cost control: Haiku by default on the public demo. ---
 const MODEL = process.env.ANTHROPIC_MODEL ?? "claude-haiku-4-5-20251001";
+// The duel is the showcase (low volume, rate-limited) — give it the sharper
+// model so the structured verdict lands. Everything else stays on Haiku.
+const DUEL_MODEL = process.env.ANTHROPIC_DUEL_MODEL ?? "claude-sonnet-4-5-20250929";
+function modelFor(angle: Angle): string {
+  return angle === "duel" ? DUEL_MODEL : MODEL;
+}
 
 const VALID_ANGLES: Angle[] = ["open", "qualify", "callprep", "walk", "rank", "duel"];
 
@@ -139,7 +145,7 @@ export async function POST(req: NextRequest) {
     async start(controller) {
       try {
         const response = await client.messages.create({
-          model: MODEL,
+          model: modelFor(angle),
           max_tokens: MAX_TOKENS[angle],
           system: [
             {

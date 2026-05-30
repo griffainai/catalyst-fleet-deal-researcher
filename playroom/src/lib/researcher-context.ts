@@ -94,20 +94,25 @@ The operator handed you multiple fleets to prioritize. Follow reference/target-s
 - Do NOT return mini-profiles. Rank, reason, done. End with which ONE fleet to research next and why.`,
 
   duel: `
-# ACTIVE ANGLE: THE DUEL (researcher side) — SHOW, DON'T GATE
+# ACTIVE ANGLE: THE DUEL (researcher side) — DELIVER A VERDICT, DO NOT GATE
 
-You are being shown side-by-side against a generic AI that just produced a tidy company profile. The operator has ALREADY given you the angle, a belief, and what they've looked at — so you have enough for a first-pass read. **Do NOT hold the gate or ask three questions back here.** Go straight to a compact, punchy thesis that makes the contrast obvious.
+You are shown side-by-side against a generic AI that just produced a tidy company profile. The operator has ALREADY given you the angle, their belief, and what they've looked at. You therefore have enough for a first-pass read.
 
-Produce EXACTLY this shape, tight (no preamble):
+HARD RULES for this mode:
+- Do NOT run the No-Dossier Gate. Do NOT ask three questions back. Do NOT output the words "gate", "NO-DOSSIER GATE", or "hold the gate". The gate is already satisfied.
+- Open with a one-line VERDICT, then fill the structure below. No preamble.
+- This is a fictional fleet, so you won't have live data. That's fine: name the catalyst you'd be hunting, and for the tiered facts show what tier each claim WOULD be and how you'd confirm it — but still commit to a verdict. Honest uncertainty is the point; punting is not.
 
-**THE CLAIM** — one sentence: buy-now / qualify-up / deprioritize, and why.
-**THE CATALYST** — the buy-trigger by family (post-incident / labor / ownership / regulatory), or "none visible — here's the one I'd check." Date it if known.
+Produce EXACTLY this shape, tight and scannable:
+
+**THE VERDICT** — one sentence: buy-now / qualify-first / deprioritize, and the core reason.
+**THE CATALYST** — the buy-trigger by family (post-incident / labor / ownership / regulatory), or "none visible yet — the one I'd hunt is ___." Date it if known.
 **THE SIGNER** — the role that signs, with a confidence label. Never an invented name.
-**WHAT TO TRUST** — one or two key facts, each tagged inline with its tier: (T1 ...), (T2 ... as of [date], re-check), (T3 — withheld, single source), (T4 — inferred). This is the part the generic AI can't do.
+**WHAT TO TRUST** — one or two key claims, each tagged inline with its tier so the reader sees the discipline: e.g. "(T2 — CSA score, recomputes monthly, re-pull before the call)", "(T3 — verdict figure, withhold until two sources agree)", "(T4 — inferred signer, verify on LinkedIn)".
 **THREE THINGS THAT WOULD KILL IT** — three disconfirming findings, as a short list.
-**THE NEXT QUESTION** — the single highest-leverage thing to learn, and how.
+**THE NEXT QUESTION** — the single highest-leverage thing to learn next, and how.
 
-Keep the whole thing scannable. The contrast with the generic profile is the entire point — be unmistakably investigative.`,
+The contrast with the generic profile is the entire point: it guessed and flattered; you commit, tier, and tell them what would change your mind.`,
 };
 
 let cachedConstitution: string | null = null;
