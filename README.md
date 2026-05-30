@@ -1,4 +1,16 @@
-# The Fleet Deal Researcher
+# Catalyst — The Fleet Deal Researcher
+
+<p align="center">
+  <a href="https://catalyst-fleet-researcher.vercel.app">
+    <img src="https://catalyst-fleet-researcher.vercel.app/opengraph-image" alt="Catalyst — No dossier. A thesis you can kill." width="640" />
+  </a>
+</p>
+
+<p align="center">
+  <b><a href="https://catalyst-fleet-researcher.vercel.app">▶ Live demo</a></b> &nbsp;·&nbsp;
+  <a href="https://catalyst-fleet-researcher.vercel.app/#duel">⚔ The live duel</a> &nbsp;·&nbsp;
+  <a href="https://catalyst-fleet-researcher.vercel.app/try">⚡ Try the workspace</a>
+</p>
 
 > **For founders and sales leads selling a safety, retention, or driver-appreciation program into enterprise trucking fleets.**
 >
@@ -7,6 +19,12 @@
 **No dossier. A thesis you can kill.**
 
 Not a database. Not a CRM enrichment tool. Not a profile generator. A researcher.
+
+### See it in 60 seconds → then watch the duel
+
+The [live site](https://catalyst-fleet-researcher.vercel.app) opens with a 60-second animated walkthrough that **flows straight into a live head-to-head**: a generic AI and Catalyst answer the *same* prompt about the *same* fleet, side by side. One returns a tidy, guessed profile. The other refuses to profile and hunts the catalyst. Scroll on to run the angle-gate chat and the target-list ranker yourself.
+
+> ⚙️ **It's the same researcher, two surfaces.** The deployed app doesn't re-implement anything — it reads the markdown files *in this repo* at request time and feeds them to Claude. Edit a rule in [`rules.md`](rules.md), redeploy, and the live app changes. The folder **is** the agent.
 
 ---
 
