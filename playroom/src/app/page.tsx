@@ -15,10 +15,10 @@ export default function Home() {
       <DemoHero />
 
       {/* 2 — the live duel */}
-      <Section id="duel" tone="dark">
-        <Eyebrow tone="dark">The proof · live</Eyebrow>
-        <H2 tone="dark">Same fleet. Two minds.</H2>
-        <Lede tone="dark">
+      <Section id="duel" tone="panel">
+        <Eyebrow>The proof · live</Eyebrow>
+        <H2>Same company. Two AIs.</H2>
+        <Lede>
           Pick a company, hit run, and watch a normal AI and Catalyst answer the <em>same</em>{" "}
           question side by side. One writes a confident paragraph. The other refuses to — and
           digs for a reason to call them <em>now</em>. This is the whole pitch in ten seconds.

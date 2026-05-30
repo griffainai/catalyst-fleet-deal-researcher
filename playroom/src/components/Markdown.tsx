@@ -64,15 +64,23 @@ function renderInline(text: string, keyBase: string): React.ReactNode[] {
   return out;
 }
 
-/** Handle **bold** and `code` inside a text fragment. */
+/** Handle **bold**, *italic*, and `code` inside a text fragment. */
 function renderEmphasis(text: string, keyBase: string): React.ReactNode[] {
-  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
+  // Bold first (greedy **), then single-* italic, then `code`.
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*\n]+\*|`[^`]+`)/g);
   return parts.map((p, idx) => {
     if (p.startsWith("**") && p.endsWith("**")) {
       return (
         <strong key={`${keyBase}-b${idx}`} className="font-bold text-steel-ink">
           {p.slice(2, -2)}
         </strong>
+      );
+    }
+    if (p.length > 2 && p.startsWith("*") && p.endsWith("*")) {
+      return (
+        <em key={`${keyBase}-i${idx}`} className="italic">
+          {p.slice(1, -1)}
+        </em>
       );
     }
     if (p.startsWith("`") && p.endsWith("`")) {
@@ -177,5 +185,5 @@ export function Markdown({ text }: { text: string }) {
   }
   flushList();
 
-  return <div className="space-y-0.5">{blocks}</div>;
+  return <div className="space-y-0.5 text-left">{blocks}</div>;
 }
