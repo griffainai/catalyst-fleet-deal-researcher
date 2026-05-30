@@ -19,9 +19,9 @@ export default function Home() {
         <Eyebrow tone="dark">The proof · live</Eyebrow>
         <H2 tone="dark">Same fleet. Two minds.</H2>
         <Lede tone="dark">
-          Hit run and watch a generic AI and Catalyst answer the <em>same</em> prompt side by
-          side. One profiles. The other refuses to — and hunts the catalyst instead. This is the
-          whole pitch in ten seconds.
+          Pick a company, hit run, and watch a normal AI and Catalyst answer the <em>same</em>{" "}
+          question side by side. One writes a confident paragraph. The other refuses to — and
+          digs for a reason to call them <em>now</em>. This is the whole pitch in ten seconds.
         </Lede>
         <div className="mt-7">
           <LiveDuel />
