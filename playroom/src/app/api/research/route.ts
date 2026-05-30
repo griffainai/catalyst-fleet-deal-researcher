@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 type ClientMessage = { role: "user" | "assistant"; content: string };
 
 // --- Cost control: Haiku by default on the public demo. ---
-const MODEL = process.env.ANTHROPIC_MODEL ?? "claude-3-5-haiku-latest";
+const MODEL = process.env.ANTHROPIC_MODEL ?? "claude-haiku-4-5-20251001";
 
 const VALID_ANGLES: Angle[] = ["open", "qualify", "callprep", "walk", "rank", "duel"];
 
