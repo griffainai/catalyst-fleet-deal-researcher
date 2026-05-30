@@ -70,27 +70,33 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 6 — two surfaces / how to use */}
+      {/* 6 — the folder, explained plainly */}
       <Section tone="panel">
-        <Eyebrow>How it&apos;s built</Eyebrow>
-        <H2>The folder is the agent. This app is just a surface.</H2>
+        <Eyebrow>What makes it different under the hood</Eyebrow>
+        <H2>Its brain is a folder you can read.</H2>
         <Lede>
-          Built on <strong>Interpretable Context Methodology</strong> — no vector store, no RAG, no
-          orchestration framework. The researcher is a folder of plain markdown: each file does one
-          job, routing is explicit, reference material loads only when needed. This web app reads
-          those same files at request time, so editing a rule changes both surfaces.
+          Most AI tools are a black box — you can&apos;t see <em>why</em> they answer the way they
+          do. Catalyst is the opposite. Everything it knows and every rule it follows lives in a
+          folder of plain-English files. Open it, change a rule, and it follows the new rule on the
+          next question. No hidden code, no magic. This website is just a friendly window into that
+          folder.
         </Lede>
-        <div className="grid md:grid-cols-2 gap-4 mt-7">
+        <div className="grid md:grid-cols-3 gap-4 mt-7">
           <Surface
-            tag="Surface 1 · zero install"
-            title="Drop the folder into Claude"
-            body="Upload the folder to a Claude Project and start researching. No app, no API key, no infrastructure. Proof the methodology travels anywhere."
+            tag="You can see why"
+            title="Nothing is hidden"
+            body="Read exactly why it called a company hot or cold. The logic isn't buried in a model — it's written down in files anyone can open."
           />
           <Surface
-            tag="Surface 2 · this app"
-            title="Catalyst, deployed"
-            body="A Next.js app over the same markdown — animated demo, live duel, angle-gate chat, list ranker. Proof it's a usable product."
+            tag="You can make it yours"
+            title="Tune it to your world"
+            body="Selling into a different industry? Edit the files — the triggers it hunts, the way it grades facts — and it becomes your researcher, not a generic one."
             accent
+          />
+          <Surface
+            tag="It goes anywhere"
+            title="No app required"
+            body="The folder works on its own: drop it into any capable AI and it runs — no install, no setup. This site just makes it nicer to use."
           />
         </div>
       </Section>

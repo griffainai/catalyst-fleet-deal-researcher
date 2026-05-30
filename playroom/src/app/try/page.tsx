@@ -12,8 +12,8 @@ export default function TryPage() {
             The workspace
           </h1>
           <p className="text-sm text-steel-muted mt-1 max-w-2xl">
-            {BRAND.tagline} — three ways to see it. The folder one level up is the actual
-            researcher; this is just the surface reading it at request time.
+            {BRAND.tagline} — three ways to use it. Catalyst&apos;s brain is a folder of
+            plain-English files; this is just a friendly window into it.
           </p>
         </div>
         <Workspace initial="duel" />

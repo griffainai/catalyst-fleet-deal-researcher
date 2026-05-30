@@ -19,18 +19,52 @@ function tierIdFromCode(code: string): TierId | null {
   return map[code] ?? null;
 }
 
-/** Render a single line of inline text: **bold**, `code`, and tier pills. */
+/**
+ * Render a single line of inline text. Emphasis (**bold** / *italic* / `code`)
+ * is parsed FIRST, then source-tier pills are substituted INSIDE each fragment.
+ * Doing it in this order means a tier mark wrapped in bold — e.g.
+ * "**KNOWN (T1 — sourced):**" — no longer orphans the `**` markers.
+ */
 function renderInline(text: string, keyBase: string): React.ReactNode[] {
-  // First split out tier marks, then handle bold/code within the rest.
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*\n]+\*|`[^`]+`)/g);
+  return parts.map((p, idx) => {
+    if (p.startsWith("**") && p.endsWith("**")) {
+      return (
+        <strong key={`${keyBase}-b${idx}`} className="font-bold text-steel-ink">
+          {renderTiers(p.slice(2, -2), `${keyBase}-b${idx}`)}
+        </strong>
+      );
+    }
+    if (p.length > 2 && p.startsWith("*") && p.endsWith("*")) {
+      return (
+        <em key={`${keyBase}-i${idx}`} className="italic">
+          {renderTiers(p.slice(1, -1), `${keyBase}-i${idx}`)}
+        </em>
+      );
+    }
+    if (p.startsWith("`") && p.endsWith("`")) {
+      return (
+        <code
+          key={`${keyBase}-c${idx}`}
+          className="font-mono text-[0.82em] bg-canvas-line/60 px-1 py-0.5 rounded"
+        >
+          {p.slice(1, -1)}
+        </code>
+      );
+    }
+    return <React.Fragment key={`${keyBase}-x${idx}`}>{renderTiers(p, `${keyBase}-x${idx}`)}</React.Fragment>;
+  });
+}
+
+/** Substitute (T1..T4 …) marks with colored tier pills; leave the rest as text. */
+function renderTiers(text: string, keyBase: string): React.ReactNode[] {
   const out: React.ReactNode[] = [];
   let lastIndex = 0;
   let m: RegExpExecArray | null;
   TIER_RE.lastIndex = 0;
   let i = 0;
   while ((m = TIER_RE.exec(text)) !== null) {
-    if (m.index > lastIndex) {
-      out.push(...renderEmphasis(text.slice(lastIndex, m.index), `${keyBase}-t${i}a`));
-    }
+    if (m.index > lastIndex) out.push(text.slice(lastIndex, m.index));
     const tid = tierIdFromCode(m[1]);
     if (tid) {
       const t = TIERS[tid];
@@ -48,7 +82,7 @@ function renderInline(text: string, keyBase: string): React.ReactNode[] {
         >
           {t.code}
           <span className="opacity-70 normal-case font-normal tracking-normal">
-            {m[2].replace(/^[\s—–-]+/, " ").trimEnd()}
+            {m[2].replace(/^[\s—–:.-]+/, " ").trimEnd()}
           </span>
         </span>
       );
@@ -58,43 +92,8 @@ function renderInline(text: string, keyBase: string): React.ReactNode[] {
     lastIndex = m.index + m[0].length;
     i += 1;
   }
-  if (lastIndex < text.length) {
-    out.push(...renderEmphasis(text.slice(lastIndex), `${keyBase}-tail`));
-  }
+  if (lastIndex < text.length) out.push(text.slice(lastIndex));
   return out;
-}
-
-/** Handle **bold**, *italic*, and `code` inside a text fragment. */
-function renderEmphasis(text: string, keyBase: string): React.ReactNode[] {
-  // Bold first (greedy **), then single-* italic, then `code`.
-  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*\n]+\*|`[^`]+`)/g);
-  return parts.map((p, idx) => {
-    if (p.startsWith("**") && p.endsWith("**")) {
-      return (
-        <strong key={`${keyBase}-b${idx}`} className="font-bold text-steel-ink">
-          {p.slice(2, -2)}
-        </strong>
-      );
-    }
-    if (p.length > 2 && p.startsWith("*") && p.endsWith("*")) {
-      return (
-        <em key={`${keyBase}-i${idx}`} className="italic">
-          {p.slice(1, -1)}
-        </em>
-      );
-    }
-    if (p.startsWith("`") && p.endsWith("`")) {
-      return (
-        <code
-          key={`${keyBase}-c${idx}`}
-          className="font-mono text-[0.82em] bg-canvas-line/60 px-1 py-0.5 rounded"
-        >
-          {p.slice(1, -1)}
-        </code>
-      );
-    }
-    return <React.Fragment key={`${keyBase}-x${idx}`}>{p}</React.Fragment>;
-  });
 }
 
 function isKillHeader(text: string): boolean {
