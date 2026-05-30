@@ -24,7 +24,7 @@ export const DUEL_SCENARIOS: DuelScenario[] = [
     fleet: "Continental Tank Lines",
     segment: "~1,800-truck hazmat / bulk-liquid carrier",
     prompt:
-      "Research Continental Tank Lines — a ~1,800-truck hazmat / bulk-liquid carrier. I want to sell them a safety + driver-retention program. Open angle.",
+      "Continental Tank Lines — ~1,800-truck hazmat / bulk-liquid carrier. Angle: open (win the account) for a safety + driver-retention program. What I believe: strong fit because they're big and hazmat. What I've looked at: their website and the SAFER snapshot, nothing else. Give me your read.",
     generic: [
       { text: "Continental Tank Lines is a leading bulk-liquid carrier " },
       { text: "(approximately 1,800 power units, estimated $400–500M annual revenue, ", flaw: "guess" },
@@ -42,7 +42,7 @@ export const DUEL_SCENARIOS: DuelScenario[] = [
     fleet: "Meridian Freightways",
     segment: "~2,500-truck dry-van carrier, stable leadership",
     prompt:
-      "Qualify Meridian Freightways — ~2,500-truck dry-van carrier, stable leadership, no recent incidents I know of. I think they're a strong fit because they're large. Qualify angle.",
+      "Meridian Freightways — ~2,500-truck dry-van carrier, stable leadership, no recent incidents I know of. Angle: qualify (is it worth this quarter?). What I believe: strong fit because they're large. What I've looked at: LinkedIn and their careers page. Give me your read.",
     generic: [
       { text: "Meridian Freightways is a major dry-van truckload carrier " },
       { text: "(~2,500 trucks, likely $600M+ in revenue, founded in the early 1990s). ", flaw: "guess" },
@@ -59,7 +59,7 @@ export const DUEL_SCENARIOS: DuelScenario[] = [
     fleet: "Harbor Point Drayage",
     segment: "~600-truck port drayage fleet, ~70% owner-operators",
     prompt:
-      "Qualify Harbor Point Drayage for our driver-retention program — ~600-truck port drayage fleet, roughly 70% owner-operators. Qualify angle.",
+      "Harbor Point Drayage — ~600-truck port drayage fleet, roughly 70% owner-operators. Angle: qualify for our driver-retention program. What I believe: 600 drivers means a big retention opportunity. What I've looked at: their website only. Give me your read.",
     generic: [
       { text: "Harbor Point Drayage operates ~600 trucks serving major port markets " },
       { text: "(estimated $120M revenue). ", flaw: "guess" },
