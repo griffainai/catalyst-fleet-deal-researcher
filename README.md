@@ -14,11 +14,20 @@
 
 > **For founders and sales leads selling a safety, retention, or driver-appreciation program into enterprise trucking fleets.**
 >
-> It doesn't hand you a company profile. It builds a **falsifiable theory of why a specific fleet buys *now*** — names who actually signs, weighs the notoriously unreliable sources in this industry, tells you the three findings that would prove the theory wrong, and ends with the one question that decides the deal.
+> Trucking-fleet intelligence is a swamp: CSA scores recompute every month, verdict dollar figures are routinely inflated by plaintiff attorneys, contact lists are 18 months stale the day you buy them. A generic AI states all of this with identical confidence. Catalyst doesn't. It tiers every source T1–T4, hunts the **buy catalyst** (the event that makes *now* different from six months ago), and delivers a falsifiable thesis with three findings that would prove it wrong.
 
 **No dossier. A thesis you can kill.**
 
 Not a database. Not a CRM enrichment tool. Not a profile generator. A researcher.
+
+**The source-tier discipline is the domain edge:**
+
+| Tier | In trucking | Treatment |
+|------|-------------|-----------|
+| **T1 — Hard** | FMCSA SAFER registration, SEC filings, carrier's own site | State plainly |
+| **T2 — Decaying** | CSA/BASIC scores (recompute monthly), crash counts | Date-stamp + "re-check before the call" |
+| **T3 — Contested** | Verdict dollar figures (plaintiff PR vs. court records), analyst revenue | Withhold until 2 sources agree |
+| **T4 — Inferred** | Email patterns, reconstructed org charts, "probably the buyer" | Label every guess explicitly |
 
 ### See it in 60 seconds → then watch the duel
 
